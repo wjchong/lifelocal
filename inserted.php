@@ -70,13 +70,17 @@ if (isset($orders->orders)) {
                 "`quantity` = '{$order->quantity}', `amount` = '{$order->amount}', `wallet` = '{$order->wallet}', `created_on` = '{$order->created_on}', " .
                 "`location` = '{$order->location}', `table_type` = '{$order->table_type}', `status` = '{$order->status}', `remark` = '{$order->remark}', " .
                 "`invoice_no` = '{$order->invoice_no}', `popup` = '{$order->popup}', `product_code` = '{$order->product_code}',`status_change_date` = '{$order->status_change_date}', " .
-                "`section_type` = '{$order->section_type}',`varient_type` = '{$order->varient_type}',`special_delivery_amount` = '{$order->special_delivery_amount}' WHERE `order_list`.`id` = ##"; 
+                "`section_type` = '{$order->section_type}',`varient_type` = '{$order->varient_type}',`special_delivery_amount` = '{$order->special_delivery_amount}'
+				,`coupon_code` = '{$order->coupon_code}',`coupon_id` = '{$order->coupon_id}',`coupon_discount` = '{$order->coupon_discount}' WHERE `order_list`.`id` = ##"; 
     
            $sql = "INSERT INTO `order_list` (`id`, `product_id`, `user_id`, `merchant_id`, `quantity`, `amount`, `wallet`, `created_on`, `location`, " .
-                "`table_type`, `status`, `remark`, `invoice_no`, `popup`, `product_code`, `status_change_date`, `section_type`,`varient_type`,`order_place`,`user_name`,`user_mobile`,`wallet_paid_amount`,`discount_amount`,`membership_discount`,`remark_extra`,`order_extra_charge`,`special_delivery_amount`) " .
+                "`table_type`, `status`, `remark`, `invoice_no`, `popup`, `product_code`, `status_change_date`, `section_type`,`varient_type`,`order_place`,`user_name`,`user_mobile`,`wallet_paid_amount`,
+				`discount_amount`,`membership_discount`,`remark_extra`,`order_extra_charge`,`special_delivery_amount`,`coupon_code`,`coupon_id`,`coupon_discount`) " .
                 "VALUES (NULL, '{$order->product_id}', '{$order->user_id}', '{$order->merchant_id}', '{$order->quantity}', '{$order->amount}', " .
                 "'{$order->wallet}', '{$order->created_on}', '{$order->location}', '{$order->table_type}', '{$order->status}', " .
-                "'{$order->remark}', '{$order->invoice_no}', '{$order->popup}', '{$order->product_code}', '{$order->status_change_date}', '{$order->section_type}','{$order->varient_type}','{$order->order_place}','{$order->user_name}','{$order->user_mobile}','{$order->wallet_paid_amount}','{$order->discount_amount}','{$order->membership_discount}','{$order->remark_extra}','{$order->order_extra_charge}','{$order->special_delivery_amount}')";
+                "'{$order->remark}', '{$order->invoice_no}', '{$order->popup}', '{$order->product_code}', '{$order->status_change_date}', '{$order->section_type}','{$order->varient_type}','{$order->order_place}'
+				,'{$order->user_name}','{$order->user_mobile}','{$order->wallet_paid_amount}','{$order->discount_amount}','{$order->membership_discount}','{$order->remark_extra}','{$order->order_extra_charge}'
+				,'{$order->special_delivery_amount}','{$order->coupon_code}','{$order->coupon_id}','{$order->coupon_discount}')";
 
       
             $found = 0;   
